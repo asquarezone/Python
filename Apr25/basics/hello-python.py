@@ -1,4 +1,4 @@
-max = 10
+max = 1000
 index = 1
 sum = 0
 while index < max:
