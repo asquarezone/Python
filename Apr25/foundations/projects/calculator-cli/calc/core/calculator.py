@@ -22,20 +22,23 @@ class BaseCalculator(ABC):
 
 class BaseMonthlyCalculator(BaseCalculator):
 
-    def __init__(self, principal, monthly_intrest_rate, tenure_in_months):
+    def __init__(self, 
+                 principal, 
+                 monthly_intrest_rate, 
+                 tenure_in_months):
         """This is intializer for monthly Calculaions
 
         Args:
-            principal (int|float): _description_
-            monthly_intrest_rate (float): _description_
-            tenure_in_months (int): _description_
+            principal (int | float): monthly investment 
+            monthly_return_rate (float): average monthly return rate
+            tenure_in_months (int): number of months
         """
         self._principal = principal
         self._monthly_intrest_rate = monthly_intrest_rate
         self._tenure_in_months = tenure_in_months
 
     @abstractmethod
-    def calculate(self):
+    def calculate(self) -> float:
         """This method will perform calculations and respond 
         with a result
         """
