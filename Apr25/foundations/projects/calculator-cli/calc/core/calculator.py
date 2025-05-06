@@ -12,7 +12,6 @@ class BaseCalculator(ABC):
 
     All the Calculators should be derived from this Base Implementation
     """
-    
     @abstractmethod
     def calculate(self):
         """This method will perform calculations and respond 
@@ -21,10 +20,12 @@ class BaseCalculator(ABC):
 
 
 class BaseMonthlyCalculator(BaseCalculator):
+    """Baseclass for all monthly calculators
+    """
 
-    def __init__(self, 
-                 principal, 
-                 monthly_intrest_rate, 
+    def __init__(self,
+                 principal,
+                 monthly_intrest_rate,
                  tenure_in_months):
         """This is intializer for monthly Calculaions
 
