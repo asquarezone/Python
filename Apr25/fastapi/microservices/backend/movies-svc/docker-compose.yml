@@ -1,0 +1,28 @@
+services:
+  moviesdb:
+    image: mysql:8.3.0
+    container_name: moviesdb
+    environment:
+      MYSQL_ROOT_PASSWORD: rootroot
+      MYSQL_DATABASE: moviesdb
+      MYSQL_USER: khaja
+      MYSQL_PASSWORD: rootroot
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+
+  movies:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - DATABASE_URL=mysql+pymysql://khaja:rootroot@moviesdb:3306/moviesdb
+    ports:
+      - "8001:8000"
+    depends_on:
+      - moviesdb
+
+
+volumes:
+  db_data:
