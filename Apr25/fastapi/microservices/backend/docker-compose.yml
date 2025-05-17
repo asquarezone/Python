@@ -1,0 +1,51 @@
+services:
+  moviesdb:
+    image: mysql:8.3.0
+    container_name: moviesdb
+    environment:
+      MYSQL_ROOT_PASSWORD: rootroot
+      MYSQL_DATABASE: moviesdb
+      MYSQL_USER: khaja
+      MYSQL_PASSWORD: rootroot
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+  theatredb:
+    image: mysql:8.3.0
+    container_name: theatredb
+    environment:
+      MYSQL_ROOT_PASSWORD: rootroot
+      MYSQL_DATABASE: theatredb
+      MYSQL_USER: khaja
+      MYSQL_PASSWORD: rootroot
+    ports:
+      - "3306"
+    volumes:
+      - theatredb_data:/var/lib/mysql
+
+  movies:
+    build:
+      context: movies-svc
+      dockerfile: Dockerfile
+    environment:
+      - DATABASE_URL=mysql+pymysql://khaja:rootroot@moviesdb:3306/moviesdb
+    ports:
+      - "8001:8000"
+    depends_on:
+      - moviesdb
+  threatres:
+    build:
+      context: theatre-svc
+      dockerfile: Dockerfile
+    environment:
+      - DATABASE_URL=mysql+pymysql://khaja:rootroot@theatredb:3306/theatredb
+    ports:
+      - "8002:8000"
+    depends_on:
+      - theatredb
+
+
+volumes:
+  db_data:
+  theatredb_data:

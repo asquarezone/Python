@@ -1,0 +1,28 @@
+services:
+  theatredb:
+    image: mysql:8.3.0
+    container_name: theatredb
+    environment:
+      MYSQL_ROOT_PASSWORD: rootroot
+      MYSQL_DATABASE: theatredb
+      MYSQL_USER: khaja
+      MYSQL_PASSWORD: rootroot
+    ports:
+      - "3306"
+    volumes:
+      - theatredb_data:/var/lib/mysql
+
+  threatres:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - DATABASE_URL=mysql+pymysql://khaja:rootroot@theatredb:3306/theatredb
+    ports:
+      - "8002:8000"
+    depends_on:
+      - theatredb
+
+
+volumes:
+  theatredb_data:
