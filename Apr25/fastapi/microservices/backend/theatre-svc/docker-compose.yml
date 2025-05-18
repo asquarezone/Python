@@ -7,21 +7,27 @@ services:
       MYSQL_DATABASE: theatredb
       MYSQL_USER: khaja
       MYSQL_PASSWORD: rootroot
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
     ports:
-      - "3306"
+      - "3306:3306"
     volumes:
       - theatredb_data:/var/lib/mysql
 
-  threatres:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    environment:
-      - DATABASE_URL=mysql+pymysql://khaja:rootroot@theatredb:3306/theatredb
-    ports:
-      - "8002:8000"
-    depends_on:
-      - theatredb
+  # threatres:
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile
+  #   environment:
+  #     - DATABASE_URL=mysql+pymysql://khaja:rootroot@theatredb:3306/theatredb
+  #   ports:
+  #     - "8002:8000"
+  #   depends_on:
+  #     - theatredb
 
 
 volumes:

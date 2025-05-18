@@ -7,6 +7,12 @@ services:
       MYSQL_DATABASE: moviesdb
       MYSQL_USER: khaja
       MYSQL_PASSWORD: rootroot
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
     ports:
       - "3306:3306"
     volumes:
@@ -19,6 +25,12 @@ services:
       MYSQL_DATABASE: theatredb
       MYSQL_USER: khaja
       MYSQL_PASSWORD: rootroot
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
     ports:
       - "3306"
     volumes:
@@ -33,7 +45,8 @@ services:
     ports:
       - "8001:8000"
     depends_on:
-      - moviesdb
+      moviesdb:
+        condition: service_healthy
   threatres:
     build:
       context: theatre-svc
@@ -43,7 +56,8 @@ services:
     ports:
       - "8002:8000"
     depends_on:
-      - theatredb
+      theatredb:
+        condition: service_healthy
 
 
 volumes:
