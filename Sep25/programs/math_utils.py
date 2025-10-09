@@ -27,7 +27,7 @@ def fibonacci_sequence(first: int = 1, second: int = 2, limit: int = 10) -> list
     Args:
         first (int, optional): The first number in the sequence. Defaults to 1.
         second (int, optional): The second number in the sequence. Defaults to 2.
-        limit (int, optional): The upper bound (exclusive) for numbers in the sequence. Defaults to 10.
+        limit (int, optional): The upper bound for numbers in the sequence. Defaults to 10.
 
     Returns:
         list[int]: A list containing the Fibonacci sequence up to `limit`.
@@ -109,7 +109,3 @@ def prime_factors(number) -> bool:
         if is_prime(factor):
             result.append(factor)
     return result
-
-
-
-
