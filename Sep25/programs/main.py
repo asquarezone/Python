@@ -7,11 +7,12 @@ execution of the primary logic.
 Typical usage example:
     $ python main.py
 """
-from calc import add as c_add
 
-def add():
-    pass
+from math_utils import factors, prime_factors
 
-result = c_add(6,5)
-print(result)
 
+if __name__ == '__main__':
+    result = factors(100)
+    print(result)
+    result = prime_factors(100)
+    print(result)
