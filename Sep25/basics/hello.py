@@ -1,7 +1,6 @@
-"""This is a sample file
-"""
 
-a= 1
-b = 2
-c = 3
-print("Welcome to python")
+def main():
+    print("hello")
+
+if __name__ == "__main__":
+    main()
