@@ -104,7 +104,10 @@ class WareHouse:
         Returns:
             The matching :class:`WarehouseItem` object, or None if the item is not found.
         """
-        pass
+        if item_id in self.items:
+            return self.items[item_id]
+        else:
+            print(f"item with {item_id} does not exist")
 
     def find_item_by_name(self, name: str) -> list[WarehouseItem]:
         """Finds items in the inventory that match the given name.
@@ -118,4 +121,9 @@ class WareHouse:
             A list of matching :class:`WarehouseItem` objects. Returns an empty list
             if no matches are found.
         """
-        pass
+        #selected_items = [ item for item in self.items if item.name == name ]
+        selected_items: list[WarehouseItem] = []
+        for item in self.items.values():
+            if item.name == name:
+                selected_items.append(item)
+        return selected_items
