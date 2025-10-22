@@ -1,0 +1,133 @@
+---
+movie:
+  id: mv_0001
+  title: 'Avengers: Endgame'
+  tagline: Part of the journey is the end.
+  description: 'After the devastating events of Avengers: Infinity War, the universe
+    is in ruins. With the help of remaining allies, the Avengers assemble once more
+    to reverse Thanos'' actions and restore balance to the universe.'
+  release:
+    date: '2019-04-26'
+    country: USA
+    languages:
+    - English
+    - Japanese
+    - Xhosa
+    runtime_minutes: 181
+    age_rating:
+      MPAA: PG-13
+      BBFC: 12A
+  production:
+    budget_usd: 356000000
+    box_office:
+      domestic: 858373000
+      international: 1939390000
+      worldwide: 2797962000
+    studios:
+    - id: st_001
+      name: Marvel Studios
+      country: USA
+    distributor:
+      name: Walt Disney Studios Motion Pictures
+      headquarters: Burbank, California
+  crew:
+    directors:
+    - id: cr_001
+      name: Anthony Russo
+      role: Director
+    - id: cr_002
+      name: Joe Russo
+      role: Director
+    writers:
+    - id: cr_003
+      name: Christopher Markus
+      role: Screenplay
+    - id: cr_004
+      name: Stephen McFeely
+      role: Screenplay
+    music:
+      composer: Alan Silvestri
+    cinematography:
+      name: Trent Opaloch
+  cast:
+  - id: act_001
+    name: Robert Downey Jr.
+    character:
+      name: Tony Stark / Iron Man
+      affiliations:
+      - Avengers
+      status: Deceased
+    screen_time_minutes: 85
+  - id: act_002
+    name: Chris Evans
+    character:
+      name: Steve Rogers / Captain America
+      affiliations:
+      - Avengers
+      status: Retired
+    screen_time_minutes: 78
+  - id: act_003
+    name: Scarlett Johansson
+    character:
+      name: Natasha Romanoff / Black Widow
+      affiliations:
+      - Avengers
+      - S.H.I.E.L.D.
+      status: Deceased
+    screen_time_minutes: 60
+  - id: act_004
+    name: Mark Ruffalo
+    character:
+      name: Bruce Banner / Hulk
+      affiliations:
+      - Avengers
+      status: Alive
+    screen_time_minutes: 70
+  - id: act_005
+    name: Chris Hemsworth
+    character:
+      name: Thor
+      affiliations:
+      - Avengers
+      - Asgardians
+      status: Alive
+    screen_time_minutes: 65
+  plot_summary:
+    acts:
+    - act: 1
+      summary: The Avengers find and confront Thanos, but discover he has destroyed
+        the Infinity Stones.
+    - act: 2
+      summary: They devise a 'Time Heist' to retrieve the Stones from the past and
+        undo the Snap.
+    - act: 3
+      summary: Thanos from 2014 attacks the Avengers' base, leading to the climactic
+        battle and Tony Stark's sacrifice.
+  awards:
+  - name: Academy Awards
+    year: 2020
+    nominations:
+    - Best Visual Effects
+  - name: MTV Movie & TV Awards
+    year: 2019
+    nominations:
+    - Best Movie
+    - Best Hero (Robert Downey Jr.)
+    wins:
+    - Best Movie
+  related_movies:
+    prequels:
+    - id: mv_0002
+      title: 'Avengers: Infinity War'
+      release_year: 2018
+    sequels: []
+    shared_universe: Marvel Cinematic Universe
+  external_links:
+    imdb: https://www.imdb.com/title/tt4154796/
+    official_site: https://www.marvel.com/movies/avengers-endgame
+    trailer: https://www.youtube.com/watch?v=TcMBFSGVi1c
+  metadata:
+    created_at: '2025-10-22T09:30:00Z'
+    last_updated_at: '2025-10-22T09:31:00Z'
+    schema_version: 1.2.0
+    data_source: Marvel Cinematic Universe API
