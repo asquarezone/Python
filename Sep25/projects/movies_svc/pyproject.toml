@@ -1,0 +1,22 @@
+[project]
+name = "movies-svc"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "shaikkhajaibrahim", email = "shaikkhajaibrahim@gmail.com" }
+]
+requires-python = ">=3.13"
+dependencies = [
+    "asyncpg>=0.30.0",
+    "fastapi[standard]>=0.121.2",
+    "python-dotenv>=1.2.1",
+    "sqlalchemy[asyncio]>=2.0.44",
+]
+
+[project.scripts]
+movies-svc = "movies_svc.main:app"
+
+[build-system]
+requires = ["uv_build>=0.9.3,<0.10.0"]
+build-backend = "uv_build"
