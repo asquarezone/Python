@@ -1,0 +1,10 @@
+index = 1
+sum = 0
+max = 1000
+while index < max:
+    if index %3 == 0 or index % 5 == 0:
+        sum = sum + index
+    index = index + 1
+
+print("Result of project euler problem 1 is below")
+print(sum)
