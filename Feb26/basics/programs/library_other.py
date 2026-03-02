@@ -1,0 +1,3 @@
+MIN = 1
+MAX = 100
+OTHER = 15
