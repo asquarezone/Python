@@ -37,6 +37,22 @@ def add_item(
     })
     return True
 
+def find_item(item_id:int) -> int|None:
+    """This method will find item id in list
+
+    Args:
+        item_id (int): item_id to be found
+
+    Returns:
+        dict|None: Returns index if found None Otherwise
+    """
+    index = None
+    for id, item in enumerate(ITEMS):
+        if item['id'] == item_id:
+            index = id
+            break
+    return index
+
 def delete_item(item_id:int) -> bool:
     """Delete item from inventory
 
@@ -46,4 +62,69 @@ def delete_item(item_id:int) -> bool:
     Returns:
         bool: True if deleted False otherwise
     """
-    pass
+    index = find_item(item_id)
+    if index == None:
+        return False
+    del ITEMS[index]
+    return True
+
+def update_item(
+        item_id:int,
+        name: str,
+        description: str,
+        price: int | float,
+        quantity: int) -> bool:
+    """Updates item to the inventory
+
+    Args:
+        item_id(int): id of the product
+        name (str): name of product
+        description (str): description
+        price (int | float): price
+        quantity (int): quantity
+
+    Returns:
+        bool: Returns True when all values are valid False otherwise
+    """
+    if price < 1 and quantity < 1:
+        return False
+    index = find_item(item_id)
+    if index == None:
+        return False
+        
+    ITEMS[index] = {
+        "id": item_id,
+        "name": name,
+        "description": description,
+        "price": price,
+        "quantity": quantity
+    }
+
+def search_item_by_name(name: str) -> list[dict]:
+    """This method is used to search items by name
+
+    Args:
+        name (str): name of the product
+
+    Returns:
+        list[dict] | None: items found
+    """
+    results = []
+    for item in ITEMS:
+        if name.lower() in item['name'].lower():
+            results.append(item)
+    return results
+
+def print_inventory_menu():
+    """This method will print all the items with its item id and item details
+    """
+    print("id\tname\tprice\tquantity")
+    for item in ITEMS:
+        print(f"{item['id']}\t{item['name']}\t{item['price']}\t{item['quantity']}")
+
+def print_sales_menu():
+    """This method will print all the items with its item id and item details
+    """
+    print("id\tname\tprice")
+    for item in ITEMS:
+        print(f"{item['id']}\t{item['name']}\t{item['price']}")
