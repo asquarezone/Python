@@ -2,7 +2,22 @@
 """
 
 # ITEMS: list[dict[str, object]] = []
-ITEMS: list[dict] = []
+ITEMS: list[dict] = [
+    {
+        "id": 1,
+        "name": "HP Wireless Mouse",
+        "description": "Ergonomic wireless mouse with USB receiver",
+        "price": 799.0,
+        "quantity": 500
+    },
+    {
+        "id": 2,
+        "name": "HP Keyboard",
+        "description": "Full-size wired keyboard with numeric keypad",
+        "price": 1199,
+        "quantity": 300
+    }
+]
 
 
 def add_item(
@@ -36,6 +51,21 @@ def add_item(
         "quantity": quantity
     })
     return True
+
+def get_item(item_id:int) -> dict|None:
+    """Get item
+
+    Args:
+        item_id (int): item item Id
+
+    Returns:
+        dict: _description_
+    """
+    index = find_item(item_id)
+    if index is None:
+        return None
+    return ITEMS[index]
+
 
 def find_item(item_id:int) -> int|None:
     """This method will find item id in list
