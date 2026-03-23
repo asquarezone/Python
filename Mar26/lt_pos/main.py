@@ -40,7 +40,9 @@ def sale_menu() -> None:
     while True:
         print_sales_menu()
         item_id = int(input("Enter the item_id: "))
+        # todo: check if item_id is valid
         quantity = int(input("Enter number of items: "))
+        # todo: check quantity > 0
         add_item_to_cart(item_id, quantity)
         choice = input("Do you want to continue adding items. Enter Y for yes and N for no: ")
         if choice.lower() == 'n':
