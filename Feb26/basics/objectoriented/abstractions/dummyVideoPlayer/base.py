@@ -2,10 +2,10 @@
 This module will have base implementations
 """
 
-from abc import abstractmethod
+from abc import abstractmethod, ABC
 
 
-class BaseVideoFormat():
+class BaseVideoFormat(ABC):
     """This is base video Format
     """
 
@@ -14,7 +14,7 @@ class BaseVideoFormat():
     def play(self):
         """Play the video
         """
-    
+
     @abstractmethod
     def stop(self):
         """Stop the video
