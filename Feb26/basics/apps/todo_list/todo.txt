@@ -1,2 +1,3 @@
 install python on my laptop
 install visual studio code
+learn decorators

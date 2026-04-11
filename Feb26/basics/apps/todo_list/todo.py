@@ -4,8 +4,10 @@ This module will be entry point for todo list cli
 
 import sys
 import task
+from utils import logger, timer
 
-
+@timer
+#@logger
 def print_usage():
     """Prints the usage instructions for the todo CLI application.
 
