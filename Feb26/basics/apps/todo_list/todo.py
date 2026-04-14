@@ -5,36 +5,27 @@ This module will be entry point for todo list cli
 import sys
 import task
 from utils import logger, timer
+import argparse
 
-@timer
-#@logger
-def print_usage():
-    """Prints the usage instructions for the todo CLI application.
+def build_parser() -> argparse.ArgumentParser:
+    parser = argparse.ArgumentParser(
+        prog="todo",
+        description="A simple command line to-do list manager"
+    )
+    parser.add_argument("action", choices=["add", "list", "remove"],help="action to be performed")
+    parser.add_argument("-i", "--item", help="todo item")
+    parser.add_argument("--index", help="index of todo item", type=int)
+    return parser
 
-    Displays available commands and examples, then exits the program
-    with a non-zero status code.
-
-    Returns:
-        None
-    """
-    print("Usage: python todo.py [add|list|remove]", end="\n\n\n")
-    print("Examples")
-    print("python todo.py add 'task description'")
-    print('python todo.py remove task-index')
-    print('python todo.py list')
-    sys.exit(1)
 
 
 if __name__ == "__main__":
-    if len(sys.argv) < 2:
-        print_usage()
-    command = sys.argv[1]
-
-    if command == "add":
-        task.add_task(sys.argv[2])
-    elif command == "list":
+    parser = build_parser()
+    args = parser.parse_args()
+    if args.action == "add":
+        task.add_task(args.item)
+    elif args.action == "list":
         task.list_tasks()
-    elif command == "remove":
-        task.remove_task(int(sys.argv[2]))
-    else:
-        print_usage()
+    elif args.action == "remove":
+        task.remove_task(args.index)
+    
