@@ -1,70 +1,64 @@
 """
-This module will be entry point for todo list cli
+This module serves as the entry point for the todo list CLI.
 """
 
 import sys
-import task
-from utils import logger, timer
 import argparse
+import task_structured
+from utils import logger, timer
 
 
 def build_parser() -> argparse.ArgumentParser:
+    """Builds and returns the argument parser for the CLI.
+
+    Returns:
+        argparse.ArgumentParser: Configured argument parser with subcommands.
+    """
     parser = argparse.ArgumentParser(
         prog="todo",
         description="A simple command line to-do list manager"
     )
+
     sub_parser = parser.add_subparsers(
         dest="action",
-        help="action to be performed",
-        description="This is supported operations on todo list"
-
+        help="Action to be performed",
+        description="Supported operations on the todo list"
     )
 
-    add_parser = sub_parser.add_parser("add", help="add a new task")
+    add_parser = sub_parser.add_parser("add", help="Add a new task")
     add_parser.add_argument(
         "-i", "--item",
         type=str,
-        help="todo item",
+        help="Todo item description",
         required=True
     )
 
-    remove_parser = sub_parser.add_parser("remove", help="remove an existing task") 
+    remove_parser = sub_parser.add_parser("remove", help="Remove an existing task")
     remove_parser.add_argument(
-        "-i", "--index",
-        type=int,
-        help="index of todo item",
+        "-i", "--identifier",
+        type=str,
+        help="Task identifier",
         required=True
     )
 
-    list_parser = sub_parser.add_parser("list", help="list all tasks")
+    list_parser = sub_parser.add_parser("list", help="List all tasks")
     list_parser.add_argument(
         "-v", "--verbose",
         action="store_true",
-        help="enable verbose mode"
+        help="Enable verbose mode"
     )
 
-    # export_parser = sub_parser.add_parser("export", help="export tasks")
-    # export_parser.add_argument(
-    #     "-f", "--file-name",
-    #     type=str,
-    #     help="export file name",
-    #     required=True
-    # )
-
-    # parser.add_argument("action", choices=["add", "list", "remove"],help="action to be performed")
-    # parser.add_argument("-i", "--item", help="todo item")
-    # parser.add_argument("--index", help="index of todo item", type=int)
     return parser
 
 
 if __name__ == "__main__":
     parser = build_parser()
     args = parser.parse_args()
-    print(args)
+
+
     if args.action == "add":
-        task.add_task(args.item)
+        task_structured.add_task(args.item)
     elif args.action == "list":
-        task.list_tasks()
+        task_structured.list_tasks()
     elif args.action == "remove":
-        task.remove_task(args.index)
-    
+        task_structured.remove_task(args.identifier)

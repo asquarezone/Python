@@ -5,6 +5,8 @@ from utils import logger, timer
 
 FILE_NAME = "todo.txt"
 
+
+
 @timer
 #@logger
 def add_task(task: str) -> None:

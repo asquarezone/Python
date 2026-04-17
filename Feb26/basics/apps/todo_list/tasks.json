@@ -1,0 +1,14 @@
+{
+    "tasks": [
+        {
+            "id": "dc54db04-8f21-4f42-9260-2d7cd875b577",
+            "task": "Create a github account",
+            "completed": false
+        },
+        {
+            "id": "9a635a06-7f76-4fa9-8f88-8e991dcc05b5",
+            "task": "Create a cloud account",
+            "completed": true
+        }
+    ]
+}
