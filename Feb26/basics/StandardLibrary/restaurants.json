@@ -1,0 +1,65 @@
+{
+  "city": "Hyderabad",
+  "restaurants": [
+    {
+      "name": "Paradise Biryani",
+      "cuisine": "Hyderabadi, Biryani",
+      "location": "Secunderabad",
+      "rating": 4.3
+    },
+    {
+      "name": "Bawarchi",
+      "cuisine": "Hyderabadi, Mughlai",
+      "location": "RTC X Roads",
+      "rating": 4.2
+    },
+    {
+      "name": "Shah Ghouse",
+      "cuisine": "Hyderabadi, Biryani",
+      "location": "Tolichowki",
+      "rating": 4.4
+    },
+    {
+      "name": "Chutneys",
+      "cuisine": "South Indian",
+      "location": "Banjara Hills",
+      "rating": 4.5
+    },
+    {
+      "name": "Barbeque Nation",
+      "cuisine": "BBQ, Buffet",
+      "location": "Jubilee Hills",
+      "rating": 4.3
+    },
+    {
+      "name": "Absolute Barbecues",
+      "cuisine": "BBQ, Buffet",
+      "location": "Gachibowli",
+      "rating": 4.4
+    },
+    {
+      "name": "Ohri's Jiva Imperia",
+      "cuisine": "North Indian",
+      "location": "Begumpet",
+      "rating": 4.2
+    },
+    {
+      "name": "Spice 6",
+      "cuisine": "Middle Eastern",
+      "location": "Jubilee Hills",
+      "rating": 4.3
+    },
+    {
+      "name": "Pista House",
+      "cuisine": "Hyderabadi, Desserts",
+      "location": "Charminar",
+      "rating": 4.3
+    },
+    {
+      "name": "Cafe Bahar",
+      "cuisine": "Hyderabadi, Biryani",
+      "location": "Basheerbagh",
+      "rating": 4.2
+    }
+  ]
+}

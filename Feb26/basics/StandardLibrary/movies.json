@@ -1,0 +1,36 @@
+{
+    "movies": [
+        {
+            "name": "RRR",
+            "year": 2022,
+            "cast": [
+                "A",
+                "B",
+                "C"
+            ],
+            "boxoffice": 1000.0
+        },
+        {
+            "name": "KGF",
+            "year": 2022,
+            "cast": [
+                "A",
+                "B",
+                "C"
+            ],
+            "boxoffice": 1000.0
+        }
+    ],
+    "theatres": [
+        {
+            "name": "pvr",
+            "location": "koramangala",
+            "id": 1
+        },
+        {
+            "name": "inox",
+            "location": "HSR",
+            "id": 2
+        }
+    ]
+}
