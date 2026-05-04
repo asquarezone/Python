@@ -1,0 +1,28 @@
+[project]
+name = "my-project"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = []
+
+[dependency-groups]
+dev = [
+    "pytest>=9.0.3",
+    "pytest-cov>=7.1.0",
+]
+
+[tool.pytest.ini_options]
+addopts = "--cov=. --cov-report=term-missing --cov-report=html"
+
+[tool.coverage.run]
+omit = [
+    ".venv/*",
+    "test_*"
+]
+
+[tool.coverage.report]
+omit = [
+    ".venv/*",
+    "test_*"
+]
