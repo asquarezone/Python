@@ -1,10 +1,11 @@
 from fastapi import FastAPI, Header
 from pydantic import BaseModel
+from inventory_api.models import (
+    Product, 
+    User, 
+    Supplier
+) 
 
-class User(BaseModel):
-    id: int
-    name: str
-    email: str
 
 app = FastAPI(title="Inventory API")
 
@@ -13,17 +14,19 @@ def health_check():
     return {"status": "ok"}
 
 
+@app.post("/products")
+async def create_product(product: Product):
+    return product
 
-@app.get("/users/{user_id}")
-async def get_user(user_id: int):
-    """This api will return user information
-    """
-    print(f"fetching informaton for user with id {user_id}")
-    return {
-        "id": user_id,
-        "name": "John Doe",
-        "email": "john.doe@example.com"
-    }
+
+@app.post("/users")
+async def create_user(user: User):
+    return user
+
+@app.post("/suppliers")
+async def create_supplier(supplier: Supplier):
+    return supplier
+
 
 @app.get("/products/")
 async def get_products(category:str, limit:int = 10):
@@ -39,7 +42,3 @@ async def profile(authorization: str = Header(), version: str = Header(default='
         "recieved_token": authorization,
         "version": version
     }
-
-@app.post("/users")
-async def create_user(user: User) -> User:
-    return user
