@@ -1,5 +1,5 @@
 from fastapi import APIRouter, status
-from inventory_api.models import Product
+from inventory_api.models import ProductRequest, ProductResponse
 
 router = APIRouter(
     prefix="/products",
@@ -7,9 +7,9 @@ router = APIRouter(
     responses={404: {"description": "Not found"}},)
 
 @router.get("/", status_code=status.HTTP_200_OK)
-async def read_products() -> list[Product]:
+async def read_products() -> list[ProductResponse]:
     return []
 
 @router.post("/", status_code=status.HTTP_201_CREATED)
-async def create_product(product: Product) -> Product:
-    return product
+async def create_product(product: ProductRequest) -> ProductResponse:
+    return ProductResponse(**product.model_dump(), id = 1)
