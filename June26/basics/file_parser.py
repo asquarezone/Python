@@ -5,7 +5,7 @@ class FileParser(ABC):
         self.file_path = file_path
 
     @abstractmethod #decorators
-    def parse(self):
+    def parse(self): # this is considered contract
         pass
 
 class HtmlFileParser(FileParser):

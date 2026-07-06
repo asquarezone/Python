@@ -2,7 +2,7 @@ class FileParser:
     def __init__(self, file_path):
         self.file_path = file_path
 
-    def parse(self):
+    def parse(self): # This is considered concrete
         pass
 
 class HtmlFileParser(FileParser):
