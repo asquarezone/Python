@@ -1,6 +1,7 @@
 """Module for simple and compound interest calculations."""
 
 from calc import BaseCalculation
+from registry import register
 
 class IntrestValidator:
     """Validates input arguments for interest calculations."""
@@ -21,6 +22,7 @@ class IntrestValidator:
         if args["principal"] < 0:
             raise ValueError("Principal cannot be negative")
 
+@register("Compound Interest")
 class CompoundInterest(BaseCalculation):
     """Calculates compound interest using the standard formula."""
 
@@ -52,7 +54,7 @@ class CompoundInterest(BaseCalculation):
         t = args["years"]
         return p * (1 + r / 100) ** t - p
 
-
+@register("Simple Interest")
 class SimpleInterest(BaseCalculation):
     """Calculates simple interest using the standard formula."""
 
