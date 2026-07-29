@@ -1,0 +1,29 @@
+[
+    {
+        "operation": "CompoundInterest",
+        "input": {
+            "principal": 100000,
+            "rate": 7.2,
+            "years": 2
+        },
+        "output": 14918.400000000023
+    },
+    {
+        "operation": "MonthlyEMICalculation",
+        "input": {
+            "principal": 100000,
+            "rate": 7.2,
+            "years": 2
+        },
+        "output": 4486.330225166592
+    },
+    {
+        "operation": "YearlyEmiCalculation",
+        "input": {
+            "principal": 100000,
+            "rate": 7.2,
+            "years": 2
+        },
+        "output": 53835.9627019991
+    }
+]

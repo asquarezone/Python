@@ -3,6 +3,7 @@
 
 
 from abc import ABC, abstractmethod
+from store import InMemoryStore, CacluatorStore, JsonMemoryStore
 
 class BaseCalculation(ABC):
     """This class represents the Base Calculation
@@ -10,6 +11,7 @@ class BaseCalculation(ABC):
     params: list[str] = []
     label: str = "Result"
     currency: str  = "Rs"
+    store: CacluatorStore = JsonMemoryStore()
 
     def run(self, args: dict) -> str:
         """This method runs the calculation
@@ -22,6 +24,7 @@ class BaseCalculation(ABC):
         """
         self.validate(args)
         value = self.compute(args)
+        self.store.append(self.__class__.__name__, args, value)
         return self.present(value)
 
     def validate(self, args: dict) -> bool:

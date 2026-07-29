@@ -5,7 +5,6 @@ from registry import REGISTER
 
 
 if __name__ == "__main__":
-    
     # emi = MonthlyEMICalculation()
     # print(emi.run({
     #     "principal": 100000,
@@ -32,6 +31,8 @@ if __name__ == "__main__":
         "principal": 100000,
         "rate": 7.2,
         "years": 2}))
+        print(operations[name].store)
+    
     
 
 
