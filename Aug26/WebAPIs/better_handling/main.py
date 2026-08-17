@@ -1,5 +1,5 @@
 from fastapi import (
-    FastAPI, Path, Query, Form, File, UploadFile
+    FastAPI, Path, Query, Form, File, UploadFile, Header, Cookie
 )
 from typing import Annotated, Literal
 from enum import Enum
@@ -62,3 +62,13 @@ async def create_file(file: Annotated[bytes, File()]):
 @app.post("/uploadfile/")
 async def create_upload_file(file: UploadFile):
     return {"filename": file.filename}
+
+@app.get("/whoami/")
+async def whoami(useragent:
+    Annotated[str, Header(alias="User-Agent")]):
+    return {"user-agent": useragent}
+
+
+@app.get("/ea/")
+async def register(eaversion: Annotated[str, Header(alias="ea-version")]):
+    return {"ea-version": eaversion}
