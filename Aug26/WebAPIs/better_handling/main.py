@@ -1,5 +1,5 @@
 from fastapi import (
-    FastAPI, Path
+    FastAPI, Path, Query
 )
 from typing import Annotated, Literal
 from enum import Enum
@@ -36,3 +36,9 @@ class Offer(str, Enum):
 @app.get("/offers/{offer}")
 def get_offers(offer: Offer):
     return {"offer": offer}
+
+
+# Query Parameters
+@app.get("/items")
+def get_item(id: Annotated[int, Query(ge=1, le=1000)], price: Literal["min", "moderate", "high"]):
+    return {"id": id, "price": price}
