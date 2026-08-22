@@ -23,6 +23,7 @@ def download_file(url: str, dest_folder: str = "downloads") -> str:
     filename = url.split("/")[-1] or "downloaded_file"
     dest_path = Path(dest_folder) / filename
 
+    start = time.perf_counter()
     response = requests.get(url, stream=True)
     response.raise_for_status()
 
@@ -30,7 +31,8 @@ def download_file(url: str, dest_folder: str = "downloads") -> str:
         for chunk in response.iter_content(chunk_size=8192):
             f.write(chunk)
 
-    print(f"Downloaded: {filename} -> {dest_path}")
+    elapsed = time.perf_counter() - start
+    print(f"Downloaded: {filename} took {elapsed:.4f} seconds")
     return str(dest_path)
 
 
